@@ -17,9 +17,7 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-[var(--color-bg)] flex justify-center py-0 sm:py-8 font-body text-[var(--color-primary)] relative">
-      {/* Decorative airy background elements - REMOVED for flat look */}
-      
+    <div className="min-h-screen bg-[var(--color-bg)] flex justify-center py-0 sm:py-8 font-body text-[var(--color-primary)] relative overflow-x-hidden">
       {/* Main Container */}
       <motion.main 
         initial="hidden"
@@ -28,19 +26,22 @@ function App() {
         className="w-full max-w-[640px] bg-white sm:rounded-2xl overflow-hidden min-h-screen sm:min-h-fit flex flex-col border border-slate-200 relative z-10"
       >
         
-        <Hero />
-        <Stats />
-        
         <AnimatePresence mode="wait">
           {!isSubmitted ? (
             <motion.div
-              key="form"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
+              key="landing"
               exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.3 }}
             >
-              <LeadForm onSuccess={handleSuccess} />
+              <Hero />
+              <Stats />
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+              >
+                <LeadForm onSuccess={handleSuccess} />
+              </motion.div>
             </motion.div>
           ) : (
             <motion.div
@@ -50,6 +51,10 @@ function App() {
               animate="visible"
             >
               <ThankYou firstName={firstName} />
+              <div className="opacity-50 grayscale transition-all duration-1000 border-t border-slate-100">
+                <Hero />
+                <Stats />
+              </div>
             </motion.div>
           )}
         </AnimatePresence>

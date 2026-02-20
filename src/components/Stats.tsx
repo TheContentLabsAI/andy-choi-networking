@@ -15,7 +15,7 @@ const Counter = ({ value, label }: { value: string, label: string }) => {
       animate={isInView ? "visible" : "hidden"}
       className="flex-1 text-center px-2"
     >
-      <div className="text-[var(--color-accent)] font-heading font-bold text-4xl sm:text-[50px] leading-none mb-1">
+      <div className="text-[var(--color-accent)] font-heading font-bold text-2xl sm:text-[50px] leading-none mb-1 break-words">
         {value}
       </div>
       <div className="text-slate-600 font-heading text-sm sm:text-base font-medium">
@@ -35,7 +35,7 @@ export default function Stats() {
   return (
     <section className="bg-white/50 backdrop-blur-sm border-y border-slate-200 py-8 px-4 w-full relative overflow-hidden">
       
-      <div className="flex divide-x divide-slate-300 relative z-10 max-w-[500px] mx-auto">
+      <div className="grid grid-cols-3 divide-x divide-slate-300 relative z-10 max-w-[500px] mx-auto">
         {stats.map((stat, index) => (
           <Counter key={index} {...stat} />
         ))}

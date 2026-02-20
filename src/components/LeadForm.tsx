@@ -78,7 +78,7 @@ export default function LeadForm({ onSuccess }: LeadFormProps) {
   const labelClasses = "block text-[var(--color-primary)] font-ui font-semibold text-sm mb-1 ml-1"
 
   return (
-    <section className="bg-transparent p-4 sm:p-8">
+    <section id="lead-form" className="bg-transparent p-4 sm:p-8">
       <div className="mb-6 text-center sm:text-left">
         <h2 className="text-2xl font-bold text-[var(--color-primary)] font-heading relative inline-block">
           Let's Connect
@@ -99,6 +99,7 @@ export default function LeadForm({ onSuccess }: LeadFormProps) {
                 className={inputClasses(errors.firstName)}
                 aria-invalid={errors.firstName ? "true" : "false"}
                 placeholder="John"
+                autoComplete="given-name"
               />
               {errors.firstName && <p role="alert" className="text-red-600 text-xs mt-1 ml-1">{errors.firstName.message}</p>}
             </div>
@@ -109,6 +110,7 @@ export default function LeadForm({ onSuccess }: LeadFormProps) {
                 className={inputClasses(errors.lastName)}
                 aria-invalid={errors.lastName ? "true" : "false"}
                 placeholder="Doe"
+                autoComplete="family-name"
               />
               {errors.lastName && <p role="alert" className="text-red-600 text-xs mt-1 ml-1">{errors.lastName.message}</p>}
             </div>
@@ -129,6 +131,7 @@ export default function LeadForm({ onSuccess }: LeadFormProps) {
                 className={inputClasses(errors.email)}
                 aria-invalid={errors.email ? "true" : "false"}
                 placeholder="john@example.com"
+                autoComplete="email"
               />
               {errors.email && <p role="alert" className="text-red-600 text-xs mt-1 ml-1">{errors.email.message}</p>}
             </div>
@@ -143,6 +146,7 @@ export default function LeadForm({ onSuccess }: LeadFormProps) {
                 className={inputClasses(errors.phone)}
                 aria-invalid={errors.phone ? "true" : "false"}
                 placeholder="(555) 123-4567"
+                autoComplete="tel"
               />
               {errors.phone && <p role="alert" className="text-red-600 text-xs mt-1 ml-1">{errors.phone.message}</p>}
             </div>
@@ -155,6 +159,7 @@ export default function LeadForm({ onSuccess }: LeadFormProps) {
                 {...register("company", { required: "Company is required", maxLength: 100 })}
                 className={inputClasses(errors.company)}
                 placeholder="Your Organization"
+                autoComplete="organization"
               />
               {errors.company && <p role="alert" className="text-red-600 text-xs mt-1 ml-1">{errors.company.message}</p>}
             </div>
@@ -164,6 +169,7 @@ export default function LeadForm({ onSuccess }: LeadFormProps) {
                 {...register("title", { required: "Title is required", maxLength: 100 })}
                 className={inputClasses(errors.title)}
                 placeholder="Manager, Director..."
+                autoComplete="organization-title"
               />
               {errors.title && <p role="alert" className="text-red-600 text-xs mt-1 ml-1">{errors.title.message}</p>}
             </div>
