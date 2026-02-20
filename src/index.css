@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Open+Sans:wght@400;600&family=Poppins:wght@400;600;700&display=swap');
+@import "tailwindcss";
+
+:root {
+  /* Modern Light Theme Palette */
+  --color-primary: #0F172A; /* Slate 900 - High contrast text */
+  --color-accent: #0EA5E9; /* Sky 500 - Vibrant, clean blue */
+  --color-blue-alt: #0284C7; /* Sky 600 - Hover state */
+  --color-bg: #F8FAFC; /* Slate 50 - Soft background */
+  --color-input-bg: #FFFFFF; /* White inputs */
+  --color-border: #E2E8F0; /* Slate 200 - Subtle borders */
+  --color-text: #334155; /* Slate 700 - Body text */
+
+  /* Font Families */
+  --font-heading: 'Poppins', sans-serif;
+  --font-body: 'Open Sans', sans-serif;
+  --font-ui: 'Inter', sans-serif;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  line-height: 1.5;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+label, input, select, textarea, button {
+  font-family: var(--font-ui);
+}
+
+/* Custom Utilities if needed, though Tailwind controls most */
+.font-heading { font-family: var(--font-heading); }
+.font-body { font-family: var(--font-body); }
+.font-ui { font-family: var(--font-ui); }
+
+/* Premium UI Enhancements - Flat Theme */
+.glass-card {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--color-border);
+  /* Removed shadows and blur for flat look */
+}
+
+.text-gradient {
+  /* Kept gradient text for visual interest, can remove if user meant this too, but usually implies structural glow */
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-blue-alt) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.input-focus-ring:focus-within {
+  /* Flat border focus instead of glow */
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
