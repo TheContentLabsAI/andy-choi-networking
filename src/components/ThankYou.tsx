@@ -7,7 +7,7 @@ interface ThankYouProps {
 
 export default function ThankYou({ firstName }: ThankYouProps) {
   return (
-    <section className="bg-white p-8 sm:p-12 text-center min-h-[400px] flex flex-col items-center justify-center">
+    <section className="bg-white p-8 sm:p-12 text-center min-h-[400px] flex flex-col items-center justify-center w-full overflow-hidden">
       <div className="mb-6">
         <h2 className="text-[28px] font-bold text-[var(--color-primary)] font-heading mb-3">
           Thanks, {firstName}! <br/> Great to connect.

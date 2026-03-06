@@ -10,7 +10,7 @@ type FormData = {
   phone: string
   company: string
   title: string
-  specialization: string
+  specialization: string[]
   investmentCapacity: string
   helpNeeded: string
   lookingFor: string
@@ -32,6 +32,8 @@ export default function LeadForm({ onSuccess }: LeadFormProps) {
     try {
       const payload = {
         ...data,
+        // Optional: Join the array into a string if your webhook expects a string
+        specialization: data.specialization ? data.specialization.join(', ') : '',
         submittedAt: new Date().toISOString()
       }
 
@@ -154,9 +156,9 @@ export default function LeadForm({ onSuccess }: LeadFormProps) {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className={labelClasses}>Company <span className="text-red-500">*</span></label>
+              <label className={labelClasses}>Company <span className="text-slate-500 font-normal">(optional)</span></label>
               <input 
-                {...register("company", { required: "Company is required", maxLength: 100 })}
+                {...register("company", { maxLength: 100 })}
                 className={inputClasses(errors.company)}
                 placeholder="Your Organization"
                 autoComplete="organization"
@@ -164,9 +166,9 @@ export default function LeadForm({ onSuccess }: LeadFormProps) {
               {errors.company && <p role="alert" className="text-red-600 text-xs mt-1 ml-1">{errors.company.message}</p>}
             </div>
             <div>
-              <label className={labelClasses}>Title / Role <span className="text-red-500">*</span></label>
+              <label className={labelClasses}>Title / Role <span className="text-slate-500 font-normal">(optional)</span></label>
               <input 
-                {...register("title", { required: "Title is required", maxLength: 100 })}
+                {...register("title", { maxLength: 100 })}
                 className={inputClasses(errors.title)}
                 placeholder="Manager, Director..."
                 autoComplete="organization-title"
@@ -180,22 +182,29 @@ export default function LeadForm({ onSuccess }: LeadFormProps) {
         <div className="space-y-5 pt-2">
           <div>
             <label className={labelClasses}>Specialization <span className="text-red-500">*</span></label>
-            <div className="relative">
-              <select 
-                {...register("specialization", { required: "Please select a specialization" })}
-                className={`${inputClasses(errors.specialization)} appearance-none bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E')] bg-[length:12px_12px] bg-[right_1rem_center] bg-no-repeat pr-8`}
-              >
-                <option value="">-- Select your specialization --</option>
+            <div className={`p-4 border rounded-sm transition-all duration-300 ${errors.specialization ? 'border-red-600 bg-red-50' : 'border-[var(--color-border)] bg-[var(--color-input-bg)]'}`}>
+              <div className="max-h-64 overflow-y-auto space-y-4 pr-2 custom-scrollbar">
                 {SPECIALIZATION_OPTIONS.map((group, idx) => (
-                  <optgroup label={group.label} key={idx}>
-                    {group.options.map((opt, optIdx) => (
-                      <option key={optIdx} value={opt}>{opt}</option>
-                    ))}
-                  </optgroup>
+                  <div key={idx} className="space-y-2">
+                    <h4 className="font-semibold text-[var(--color-primary)] text-sm sticky top-0 bg-[var(--color-input-bg)] py-1 z-10">{group.label}</h4>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pl-2">
+                      {group.options.map((opt, optIdx) => (
+                        <label key={optIdx} className="flex items-start space-x-2 cursor-pointer group">
+                          <input
+                            type="checkbox"
+                            value={opt}
+                            {...register("specialization", { required: "Please select at least one specialization" })}
+                            className="mt-1 flex-shrink-0 w-4 h-4 text-[var(--color-accent)] border-gray-300 rounded focus:ring-[var(--color-accent)]"
+                          />
+                          <span className="text-sm text-gray-700 group-hover:text-black transition-colors leading-tight pt-1 mr-2">{opt}</span>
+                        </label>
+                      ))}
+                    </div>
+                  </div>
                 ))}
-              </select>
+              </div>
             </div>
-            {errors.specialization && <p role="alert" className="text-red-600 text-xs mt-1 ml-1">{errors.specialization.message}</p>}
+            {errors.specialization && <p role="alert" className="text-red-600 text-xs mt-1 ml-1">{errors.specialization?.message as string}</p>}
           </div>
 
           <div>

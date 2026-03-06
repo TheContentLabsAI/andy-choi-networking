@@ -7,8 +7,8 @@ import { fadeIn, scaleIn, staggerContainer } from '../utils/animations'
 const PROFILE = {
   name: "Andy Choi",
   subtitle: "Multifamily Developer | Licensed General Contractor | Operator-First Investor",
-  photoUrl: "https://res.cloudinary.com/dwklqvlag/image/upload/v1771546386/image_foke3e.png",
-  shortBio: "I'm a Los Angeles–based real estate operator and developer with 15+ years of hands-on experience across acquisitions, underwriting, construction, and asset execution. My approach is operator-first and risk-controlled, delivering predictable outcomes through institutional-grade financial modeling and deep operational discipline.",
+  photoUrl: "https://assets.cdn.filesafe.space/3qtK4a2wJAvaHk77pbNQ/media/69ab26ccb003fab409f37bfd.jpg",
+  shortBio: "I'm a Los Angeles–based real estate operator and developer since 2015 and have hands-on experience across acquisitions, underwriting, construction, and asset execution. My approach is operator-first and risk-controlled, delivering predictable outcomes through institutional-grade financial modeling and deep operational discipline.",
   fullBio: [
     "Since 2015, I've completed 98+ projects totaling $100MM+ in asset value.",
     "Licensed General Contractor (B-Class) with zero bond claims and AQMD certification.",

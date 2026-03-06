@@ -49,9 +49,10 @@ function App() {
               variants={slideUp}
               initial="hidden"
               animate="visible"
+              className="w-full overflow-hidden"
             >
               <ThankYou firstName={firstName} />
-              <div className="opacity-50 grayscale transition-all duration-1000 border-t border-slate-100">
+              <div className="opacity-50 grayscale transition-all duration-1000 border-t border-slate-100 w-full overflow-hidden">
                 <Hero />
                 <Stats />
               </div>

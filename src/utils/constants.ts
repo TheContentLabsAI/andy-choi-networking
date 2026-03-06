@@ -1,6 +1,6 @@
 export const SPECIALIZATION_OPTIONS = [
   {
-    label: "Real Estate (1RE)",
+    label: "Real Estate",
     options: [
       "Acquisition/Sales Rep", "Airbnb", "Broker", "Agent/Realtor", "Bird Dog", 
       "Buyer (Investor)", "Buyer (Retail)", "Development: Multi Family", 
@@ -11,7 +11,7 @@ export const SPECIALIZATION_OPTIONS = [
     ]
   },
   {
-    label: "Construction & Design (2CT)",
+    label: "Construction & Design",
     options: [
       "Architect", "Contractor GC", "Contractor Sub", "Contractor Handyman/Day Labor", 
       "Professional Consultants: Structural/Civil/T24", 
@@ -19,7 +19,7 @@ export const SPECIALIZATION_OPTIONS = [
     ]
   },
   {
-    label: "Operations & Services (3OP)",
+    label: "Operations & Services",
     options: [
       "Accounting", "CPA", "Creator/Influencer", "Data Provider", "Insurance", 
       "JV Partner", "Legal/Attorney", "Project Manager (PM)", 
@@ -27,14 +27,14 @@ export const SPECIALIZATION_OPTIONS = [
     ]
   },
   {
-    label: "Capital & Finance (4CR)",
+    label: "Capital & Finance",
     options: [
       "Capital Investor (PML/LP)", "Fund Manager", "IRA Custodian", "Lender", 
       "Loan Broker", "Loan Officer", "Loan Provider (Private/HML)"
     ]
   },
   {
-    label: "Government & Civic (5CO)",
+    label: "Government & Civic",
     options: [
       "Government/Municipality/City Official"
     ]
