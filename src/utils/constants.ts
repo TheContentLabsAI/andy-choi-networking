@@ -1,53 +1,172 @@
-export const SPECIALIZATION_OPTIONS = [
+export type ContactRoleGroup = {
+  label: string
+  description: string
+  options: string[]
+}
+
+export const CONTACT_ROLE_GROUPS: ContactRoleGroup[] = [
   {
-    label: "Real Estate",
+    label: "Deal Side & Brokerage",
+    description: "Buying, selling, sourcing, leasing, and deal execution roles.",
     options: [
-      "Acquisition/Sales Rep", "Airbnb", "Broker", "Agent/Realtor", "Bird Dog", 
-      "Buyer (Investor)", "Buyer (Retail)", "Development: Multi Family", 
-      "Disposition Rep", "Escrow Officer", "Escrow Assistant", 
-      "Fix&Flip: Single Family", "Leasing Agent", "Property Manager", 
-      "Residential Care Facility", "Seller", "Tenant", 
-      "Transaction Coordinator (TC)", "Title", "Value Add: Multi Family", "Wholesaler"
-    ]
+      "Acquisition, Sales Rep",
+      "Broker (Real Estate)",
+      "Agent/Realtor",
+      "Bird Dog",
+      "Buyer - Investor",
+      "Buyer - Owner Occupant",
+      "Buyer - Institutional",
+      "Seller",
+      "Distressed Seller",
+      "Wholesaler",
+      "Investment Sales Broker",
+      "Commercial Broker",
+      "Debt Broker",
+      "Tenant Rep Broker",
+      "Leasing Agent",
+      "Leasing Agency",
+      "Tenant",
+      "1031 Exchange Buyer",
+      "1031 Exchange Intermediary",
+      "Disposition Rep",
+      "Escrow Officer",
+      "Escrow Assistant",
+      "Transaction Coordinator (TC)",
+      "Title",
+    ],
   },
   {
-    label: "Construction & Design",
+    label: "Development & Construction",
+    description: "Development, construction, site work, and build-stage specialists.",
     options: [
-      "Architect", "Contractor GC", "Contractor Sub", "Contractor Handyman/Day Labor", 
-      "Professional Consultants: Structural/Civil/T24", 
-      "Professional Consultants: Expediter/Land Use/Public Affairs"
-    ]
+      "Real Estate Developer",
+      "Land Owner",
+      "Development: Multi Family",
+      "Fix&Flip: Single Family",
+      "Value add: Multi Family",
+      "Architect",
+      "General Contractor",
+      "Subcontractor",
+      "Handyman",
+      "Specialty Contractor",
+      "Construction Manager",
+      "Owner's Rep",
+      "Cost Estimator",
+      "Surveyor",
+      "Environmental Consultant",
+      "Geotechnical Engineer",
+      "Professional Consultants: Structural, Civil, T24",
+      "Professional Consultants: Expediter, Land Use, Public Affairs",
+    ],
   },
   {
-    label: "Operations & Services",
+    label: "Property Operations",
+    description: "Roles responsible for running, maintaining, and servicing assets.",
     options: [
-      "Accounting", "CPA", "Creator/Influencer", "Data Provider", "Insurance", 
-      "JV Partner", "Legal/Attorney", "Project Manager (PM)", 
-      "Tax Strategist", "Vendor/Service Provider"
-    ]
+      "Property Manager",
+      "Asset Manager",
+      "Facilities Manager",
+      "Maintenance Vendor",
+      "Security Vendor",
+      "Residential Care Facility",
+      "Airbnb",
+    ],
   },
   {
-    label: "Capital & Finance",
+    label: "Capital & Investment",
+    description: "Capital partners, lenders, fund operators, and investor-side roles.",
     options: [
-      "Capital Investor (PML/LP)", "Fund Manager", "IRA Custodian", "Lender", 
-      "Loan Broker", "Loan Officer", "Loan Provider (Private/HML)"
-    ]
+      "Syndicator / Sponsor",
+      "Family Office",
+      "Institutional Investor",
+      "Private Equity Firm",
+      "Fund of Funds",
+      "Investment Banker",
+      "Capital Advisor / Placement Agent",
+      "Limited Partner (LP)",
+      "General Partner (GP)",
+      "Fund Manager",
+      "IRA Custodian",
+      "Lender",
+      "Loan Broker",
+      "Loan Officer",
+      "Loan Provider (Private / HML)",
+      "Venture Capital",
+      "Private Money Lender",
+    ],
   },
   {
-    label: "Government & Civic",
+    label: "Legal, Risk & Tax",
+    description: "Legal counsel, compliance, insurance, and tax-related roles.",
     options: [
-      "Government/Municipality/City Official"
-    ]
+      "Real Estate Attorney",
+      "Securities Attorney",
+      "Land Use Attorney",
+      "Litigation Attorney",
+      "Risk Consultant",
+      "Accounting",
+      "CPA",
+      "Insurance",
+      "Tax Strategist",
+      "Property Tax Consultant",
+    ],
+  },
+  {
+    label: "Partners & Services",
+    description: "Operators, consultants, service providers, and strategic partners.",
+    options: [
+      "Appraiser",
+      "Energy Consultant",
+      "Utility Consultant",
+      "Operating Partner",
+      "Strategic Partner",
+      "Development Partner",
+      "JV Partner",
+      "Project Manager (PM)",
+      "Vendor / Service Provider",
+      "Data Provider",
+      "Real Estate Data Provider",
+      "Real Estate Coach / Mentor",
+    ],
+  },
+  {
+    label: "Technology, Media & Marketing",
+    description: "Tech builders, data platforms, and attention/brand roles.",
+    options: [
+      "PropTech Founder",
+      "AI Developer",
+      "Software Engineer",
+      "Software QA",
+      "Software Project Manager",
+      "Software Architect",
+      "Creator / Influencer",
+      "Media / Podcast Host",
+      "Industry Speaker",
+      "Conference Organizer",
+      "Marketing Agency",
+    ],
+  },
+  {
+    label: "Government & Entitlements",
+    description: "Public-sector and entitlement stakeholders tied to approvals.",
+    options: [
+      "Government / Municipality / City official",
+      "City Planner",
+      "Zoning Official",
+      "Building Inspector",
+      "Planning Commissioner",
+    ],
   },
   {
     label: "Other",
-    options: ["Other"]
-  }
-];
+    description: "Catch-all for roles that do not fit the groups above.",
+    options: ["Other"],
+  },
+]
 
 export const INVESTMENT_CAPACITY_OPTIONS = [
   "Less than $100k",
-  "$100k – $500k",
-  "$500k – $1M",
-  "$1M+"
-];
+  "$100k - $500k",
+  "$500k - $1M",
+  "$1M+",
+]
