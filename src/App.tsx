@@ -1,10 +1,37 @@
-import { useState } from 'react'
+import { Component, type ReactNode, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import Hero from './components/Hero'
 import Stats from './components/Stats'
 import LeadForm from './components/LeadForm'
 import ThankYou from './components/ThankYou'
 import { fadeIn, slideUp } from './utils/animations'
+
+class ErrorBoundary extends Component<
+  { children: ReactNode },
+  { hasError: boolean }
+> {
+  constructor(props: { children: ReactNode }) {
+    super(props)
+    this.state = { hasError: false }
+  }
+
+  static getDerivedStateFromError() {
+    return { hasError: true }
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div className="p-8 text-center">
+          <p className="text-slate-600 font-body text-sm">
+            Something went wrong loading this section. Please refresh the page.
+          </p>
+        </div>
+      )
+    }
+    return this.props.children
+  }
+}
 
 function App() {
   const [isSubmitted, setIsSubmitted] = useState(false)
@@ -40,7 +67,9 @@ function App() {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
               >
-                <LeadForm onSuccess={handleSuccess} />
+                <ErrorBoundary>
+                  <LeadForm onSuccess={handleSuccess} />
+                </ErrorBoundary>
               </motion.div>
             </motion.div>
           ) : (
@@ -52,10 +81,6 @@ function App() {
               className="w-full overflow-hidden"
             >
               <ThankYou firstName={firstName} />
-              <div className="opacity-50 grayscale transition-all duration-1000 border-t border-slate-100 w-full overflow-hidden">
-                <Hero />
-                <Stats />
-              </div>
             </motion.div>
           )}
         </AnimatePresence>

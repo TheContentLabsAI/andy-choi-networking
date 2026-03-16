@@ -9,6 +9,20 @@
     <meta property="og:title" content="Andy Choi — Real Estate Developer & Operator" />
     <meta property="og:image" content="https://assets.cdn.filesafe.space/3qtK4a2wJAvaHk77pbNQ/media/6723f415cdf7264c6591bde8.png" />
     <meta name="theme-color" content="#00112C" />
+    <!-- Font preconnect: parallel DNS+TLS before the stylesheet requests font files -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Open+Sans:wght@400;600&family=Poppins:wght@400;600;700&display=swap"
+    />
+    <!-- Preload LCP image so the browser fetches it on first parse, not after JS runs -->
+    <link
+      rel="preload"
+      as="image"
+      href="https://assets.cdn.filesafe.space/3qtK4a2wJAvaHk77pbNQ/media/69ab26ccb003fab409f37bfd.jpg"
+      fetchpriority="high"
+    />
   </head>
   <body>
     <div id="root"></div>
