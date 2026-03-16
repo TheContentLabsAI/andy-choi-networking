@@ -61,10 +61,10 @@ const Counter = ({ value, label }: { value: string; label: string }) => {
       animate={isInView ? 'visible' : 'hidden'}
       className="flex-1 text-center px-2"
     >
-      <div className="text-[var(--color-accent)] font-heading font-bold text-2xl sm:text-[3.125rem] leading-none mb-1 break-words tabular-nums">
+      <div className="text-[var(--color-accent)] font-heading font-bold text-xl sm:text-4xl lg:text-[3.125rem] leading-none mb-1 break-words tabular-nums">
         {prefix}{count}{suffix}
       </div>
-      <div className="text-slate-600 font-heading text-sm sm:text-base font-medium">
+      <div className="text-slate-600 font-heading text-xs sm:text-base font-medium">
         {label}
       </div>
     </motion.div>

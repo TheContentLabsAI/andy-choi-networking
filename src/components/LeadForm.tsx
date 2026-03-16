@@ -131,7 +131,7 @@ export default function LeadForm({ onSuccess }: LeadFormProps) {
 
   const inputClasses = (error?: FieldError) => `
     w-full p-3 bg-[var(--color-input-bg)] border rounded-sm outline-none transition-all duration-300
-    font-ui text-sm text-black
+    font-ui text-base sm:text-sm text-black
     placeholder-slate-500
     input-focus-ring
     ${
@@ -302,7 +302,7 @@ export default function LeadForm({ onSuccess }: LeadFormProps) {
               aria-describedby="role-picker-hint"
             >
               {/* Role group tabs */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 {CONTACT_ROLE_GROUPS.map((group) => {
                   const isActive = group.label === activeRoleGroup
                   const selectedInGroup = selectedRoles.filter((role) =>
@@ -417,7 +417,7 @@ export default function LeadForm({ onSuccess }: LeadFormProps) {
                       <button
                         type="button"
                         onClick={clearAllRoles}
-                        className="text-xs font-semibold uppercase tracking-[0.08em] text-slate-500 hover:text-[var(--color-accent)] transition-colors"
+                        className="text-xs font-semibold uppercase tracking-[0.08em] text-slate-500 hover:text-[var(--color-accent)] transition-colors py-2 px-2 -mr-2"
                       >
                         Clear all
                       </button>
@@ -479,7 +479,7 @@ export default function LeadForm({ onSuccess }: LeadFormProps) {
               <select
                 id="investmentCapacity"
                 {...register('investmentCapacity')}
-                className={`${inputClasses()} appearance-none bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E')] bg-[length:12px_12px] bg-[right_1rem_center] bg-no-repeat pr-8 text-slate-700`}
+                className={`${inputClasses()} appearance-none bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E')] bg-[length:12px_12px] bg-[right_1rem_center] bg-no-repeat pr-8 text-slate-700 text-base sm:text-sm`}
               >
                 <option value="">Select a range</option>
                 {INVESTMENT_CAPACITY_OPTIONS.map((option) => (

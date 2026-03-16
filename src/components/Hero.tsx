@@ -98,9 +98,9 @@ export default function Hero() {
             </button>
             
             <div className="mt-6 flex flex-col sm:flex-row items-center gap-4">
-              <button 
+              <button
                 onClick={() => document.getElementById('lead-form')?.scrollIntoView({ behavior: 'smooth' })}
-                className="bg-[var(--color-accent)] text-white font-heading font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl hover:bg-[var(--color-blue-alt)] transition-all duration-300 hover:-translate-y-0.5 active:scale-95"
+                className="w-full sm:w-auto bg-[var(--color-accent)] text-white font-heading font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl hover:bg-[var(--color-blue-alt)] transition-all duration-300 hover:-translate-y-0.5 active:scale-95"
               >
                 Connect with Andy
               </button>
